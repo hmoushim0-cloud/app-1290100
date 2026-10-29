@@ -8,26 +8,29 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import sa.factory.app1290100.data.InMemoryOrderRequestRepository
-import sa.factory.app1290100.model.CatalogItem
+import sa.factory.app1290100.data.InMemoryCarWashRepository
+import sa.factory.app1290100.model.WashPackage
 
 val BespokeColorScheme = darkColorScheme(
-    primary = Color(0xFF0F766E),
+    primary = Color(0xFF0284C7),
     secondary = Color(0xFFF59E0B),
-    tertiary = Color(0xFFF59E0B),
+    tertiary = Color(0xFF06B6D4),
     background = Color(0xFF0F172A),
     surface = Color(0xFF1E293B),
+    surfaceVariant = Color(0xFF334155),
+    primaryContainer = Color(0xFF0369A1),
     onPrimary = Color.White,
     onSecondary = Color.White,
     onBackground = Color(0xFFF8FAFC),
-    onSurface = Color(0xFFF8FAFC)
+    onSurface = Color(0xFFF8FAFC),
+    onPrimaryContainer = Color.White
 )
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val repository = InMemoryOrderRequestRepository()
-        val viewModel = OrderRequestViewModel(repository)
+        val repository = InMemoryCarWashRepository()
+        val viewModel = CarWashViewModel(repository)
 
         // Mathematical Lock 2: Support start_screen and screen intent extras
         val startScreen = intent?.getStringExtra("start_screen")
@@ -41,27 +44,27 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     var currentScreen by remember { mutableStateOf(startScreen) }
-                    var selectedItem by remember { mutableStateOf<CatalogItem?>(null) }
+                    var selectedPkg by remember { mutableStateOf<WashPackage?>(null) }
 
                     when (currentScreen) {
                         "details" -> {
-                            OrderRequestDetailsScreen(
-                                item = selectedItem,
+                            CarWashDetailsScreen(
+                                washPackage = selectedPkg,
                                 onBack = { currentScreen = "home" },
                                 onProceedCheckout = { currentScreen = "checkout" }
                             )
                         }
                         "checkout", "tracking" -> {
-                            OrderRequestCheckoutScreen(
+                            CarWashCheckoutScreen(
                                 onBack = { currentScreen = "details" },
                                 onComplete = { currentScreen = "home" }
                             )
                         }
                         else -> {
-                            OrderRequestHomeScreen(
+                            CarWashHomeScreen(
                                 viewModel = viewModel,
-                                onSelectItem = { item ->
-                                    selectedItem = item
+                                onSelectPackage = { pkg ->
+                                    selectedPkg = pkg
                                     currentScreen = "details"
                                 },
                                 onQuickCheckout = {

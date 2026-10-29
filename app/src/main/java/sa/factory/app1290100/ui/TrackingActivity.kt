@@ -14,7 +14,7 @@ class TrackingActivity : ComponentActivity() {
         setContent {
             MaterialTheme(colorScheme = BespokeColorScheme) {
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    OrderRequestCheckoutScreen(
+                    CarWashCheckoutScreen(
                         onBack = { finish() },
                         onComplete = { finish() }
                     )

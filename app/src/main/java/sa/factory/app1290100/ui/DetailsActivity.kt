@@ -14,8 +14,8 @@ class DetailsActivity : ComponentActivity() {
         setContent {
             MaterialTheme(colorScheme = BespokeColorScheme) {
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    OrderRequestDetailsScreen(
-                        item = null,
+                    CarWashDetailsScreen(
+                        washPackage = null,
                         onBack = { finish() },
                         onProceedCheckout = { finish() }
                     )

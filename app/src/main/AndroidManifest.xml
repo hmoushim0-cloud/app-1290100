@@ -5,7 +5,7 @@
     <application
         android:allowBackup="false"
         android:icon="@drawable/ic_app_badge"
-        android:label="مشروع التطبيق هنا ليس مجرد نموذ"
+        android:label="غسيلك المتنقل وباقات النانو"
         android:theme="@android:style/Theme.Material.Light.NoActionBar">
         <activity
             android:name=".ui.MainActivity"
