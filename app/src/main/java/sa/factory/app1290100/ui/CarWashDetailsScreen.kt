@@ -65,7 +65,7 @@ fun CarWashDetailsScreen(
         ) {
             // Vector Graphic Diagnostic / Route (Canvas + Path >= 8 operations)
             BespokeVectorIllustration(
-                archetype = "booking_timeline",
+                archetype = "map_radar",
                 screenIdx = 2,
                 modifier = Modifier
                     .fillMaxWidth()

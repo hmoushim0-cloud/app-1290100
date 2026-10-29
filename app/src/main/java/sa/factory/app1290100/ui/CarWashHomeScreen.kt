@@ -64,7 +64,7 @@ fun CarWashHomeScreen(
             item {
                 // Vector Graphic Chrono Radar (Canvas + Path >= 8 operations)
                 BespokeVectorIllustration(
-                    archetype = "booking_timeline",
+                    archetype = "map_radar",
                     screenIdx = 1,
                     modifier = Modifier
                         .fillMaxWidth()

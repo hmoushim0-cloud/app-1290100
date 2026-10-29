@@ -51,7 +51,7 @@ fun CarWashCheckoutScreen(
         ) {
             // Vector Graphic Gauge / Tracking (Canvas + Path >= 8 operations)
             BespokeVectorIllustration(
-                archetype = "booking_timeline",
+                archetype = "map_radar",
                 screenIdx = 3,
                 modifier = Modifier
                     .fillMaxWidth()

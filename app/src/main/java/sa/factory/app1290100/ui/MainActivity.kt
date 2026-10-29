@@ -48,8 +48,16 @@ class MainActivity : ComponentActivity() {
 
                     when (currentScreen) {
                         "details" -> {
+                            val defaultPkg = selectedPkg ?: WashPackage(
+                                id = "pkg_nano_protect",
+                                title = "باقة الحماية بتقنية النانو كواتينج السريع",
+                                description = "غسيل تفصيلي متكامل مع معالجة الهيكل بطبقة مانعة للالتصاق ومقاومة للغبار والأملاح.",
+                                priceSar = 175.0,
+                                durationMinutes = 75,
+                                iconVector = "bolt"
+                            )
                             CarWashDetailsScreen(
-                                washPackage = selectedPkg,
+                                washPackage = defaultPkg,
                                 onBack = { currentScreen = "home" },
                                 onProceedCheckout = { currentScreen = "checkout" }
                             )
